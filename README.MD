@@ -2,6 +2,16 @@
 
 Sistema de gerenciamento de biblioteca desenvolvido em Python. Além do cadastro e controle de livros, permite registrar empréstimos e consultar o histórico, simulando o funcionamento básico de uma biblioteca real por meio de um menu interativo no terminal.
 
+O projeto conta com duas versões: a original, em terminal, e uma versão web com interface visual, feita com Streamlit.
+
+## 🔗 Demo ao vivo
+
+Teste a versão web direto no navegador, sem instalar nada:
+
+**➡️ [Acessar demonstração](https://sistema-biblioteca-esjmzyvu3cjkbek6ing7lw.streamlit.app/)**
+
+> Como o app está no plano gratuito do Streamlit, ele pode hibernar após um tempo sem uso. Se aparecer uma tela pedindo pra reativar, basta clicar no botão e aguardar alguns segundos.
+
 ## Funcionalidades
 
 - Adicionar novos livros ao acervo
@@ -15,22 +25,36 @@ Sistema de gerenciamento de biblioteca desenvolvido em Python. Além do cadastro
 ## Tecnologias utilizadas
 
 - Python
+- Streamlit (versão web)
 
 ## Como executar
 
 1. Clone o repositório:
-   ```bash
-   git clone https://github.com/GbrieuZ/sistema-biblioteca.git
-   ```
+
+\`\`\`
+git clone https://github.com/GbrieuZ/sistema-biblioteca.git
+\`\`\`
+
 2. Acesse a pasta do projeto:
-   ```bash
-   cd sistema-biblioteca
-   ```
-3. Execute o programa:
-   ```bash
-   python main.py
-   ```
-   (substitua `main.py` pelo nome do seu arquivo principal, se for diferente)
+
+\`\`\`
+cd sistema-biblioteca
+\`\`\`
+
+3. Execute a versão que quiser:
+
+**Versão terminal:**
+
+\`\`\`
+python terminal/biblioteca.py
+\`\`\`
+
+**Versão web (Streamlit):**
+
+\`\`\`
+pip install streamlit
+streamlit run web/app.py
+\`\`\`
 
 ## O que este projeto demonstra
 
