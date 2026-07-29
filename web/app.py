@@ -4,7 +4,6 @@ import streamlit as st
 st.set_page_config(page_title="Biblioteca Simples", page_icon="📚", layout="centered")
 
 # ------------------------------------------------------------------
-# ESTADO DA APLICACAO
 # No Streamlit o script roda inteiro de novo a cada clique. Por isso
 # guardamos os dados no st.session_state, que sobrevive entre as
 # interacoes. Ele e o equivalente as suas variaveis globais
@@ -15,7 +14,7 @@ if "livros" not in st.session_state:
 if "historico" not in st.session_state:
     st.session_state.historico = []
 
-# Atalhos pra escrever menos daqui pra baixo
+
 livros = st.session_state.livros
 historico = st.session_state.historico
 
@@ -29,7 +28,7 @@ aba_add, aba_listar, aba_remover, aba_atualizar, aba_emprestimo, aba_historico =
 )
 
 # ------------------------------------------------------------------
-# ABA 1 — ADICIONAR LIVRO  (era a opcao 1 do terminal)
+# ADICIONAR LIVRO
 # ------------------------------------------------------------------
 with aba_add:
     st.subheader("Adicionar livro ao sistema")
@@ -39,7 +38,7 @@ with aba_add:
     quantidade = st.number_input("Quantidade de exemplares", min_value=1, step=1, value=1)
 
     if st.button("Adicionar livro"):
-        # As mesmas validacoes que voce tinha no terminal
+      
         if not titulo or not autor:
             st.error("Preencha o título e o autor.")
         elif titulo.isdigit() or autor.isdigit():
@@ -51,7 +50,7 @@ with aba_add:
             st.success(f"Livro '{titulo}' adicionado com sucesso!")
 
 # ------------------------------------------------------------------
-# ABA 2 — LISTAR LIVROS  (opcao 2)
+# LISTAR LIVROS
 # ------------------------------------------------------------------
 with aba_listar:
     st.subheader("Livros cadastrados")
@@ -59,7 +58,7 @@ with aba_listar:
     if not livros:
         st.info("Não há livros cadastrados no sistema.")
     else:
-        # Monta uma tabela ja ordenada por titulo
+        # tabela ordenada por titulo
         tabela = [
             {"Título": t, "Autor": d["autor"], "Exemplares": d["exemplares"]}
             for t, d in sorted(livros.items())
@@ -67,7 +66,7 @@ with aba_listar:
         st.dataframe(tabela, use_container_width=True, hide_index=True)
 
 # ------------------------------------------------------------------
-# ABA 3 — REMOVER LIVRO  (opcao 3)
+# REMOVER LIVRO
 # ------------------------------------------------------------------
 with aba_remover:
     st.subheader("Remover livro")
@@ -83,7 +82,7 @@ with aba_remover:
             st.rerun()  # recarrega a tela pra o item sumir da lista
 
 # ------------------------------------------------------------------
-# ABA 4 — ATUALIZAR LIVRO  (opcao 4)
+# ATUALIZAR LIVRO
 # ------------------------------------------------------------------
 with aba_atualizar:
     st.subheader("Atualizar livro")
@@ -123,7 +122,7 @@ with aba_atualizar:
                 st.rerun()
 
 # ------------------------------------------------------------------
-# ABA 5 — EMPRESTIMO  (opcao 5)
+# EMPRESTIMO
 # ------------------------------------------------------------------
 with aba_emprestimo:
     st.subheader("Registrar empréstimo")
@@ -154,7 +153,7 @@ with aba_emprestimo:
                 st.rerun()
 
 # ------------------------------------------------------------------
-# ABA 6 — HISTORICO  (opcao 6)
+# HISTORICO
 # ------------------------------------------------------------------
 with aba_historico:
     st.subheader("Histórico de empréstimos")
